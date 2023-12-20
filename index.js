@@ -21,6 +21,17 @@ const playRockPaperScisors = () => {
     `);
     // user choice
     let userAnswer = readlineSync.question('Ваш выбор: ');
+    let answerCheck = true;
+    while (answerCheck) {
+      if (userAnswer === '1' || userAnswer === '2' || userAnswer === '3') {
+        answerCheck = false;
+      } else {
+        console.log(`
+Такой опции нет! Выберете цифру от 1 до 3!
+    `);
+        userAnswer = readlineSync.question('Ваш выбор: ');
+      }
+    }
     let resultUserVerb = '';
     switch (userAnswer) {
       case '1':
