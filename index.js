@@ -88,8 +88,19 @@ const playRockPaperScisors = () => {
 
     // ask for play again
 
-    const askReplay = readlineSync.question('Хотите сыграть ещё раз? (да/нет): ');
-
+    const askUserReplay = readlineSync.question('Хотите сыграть ещё раз? (да/нет): ');
+    let askReplay = askUserReplay.toLowerCase();
+    let answerCheckEndGame = true;
+    while (answerCheckEndGame) {
+      if (askReplay === 'нет' || askReplay === 'да') {
+        answerCheckEndGame = false;
+      } else {
+        console.log(`
+Такой опции нет! Выберете да/нет!
+    `);
+        askReplay = readlineSync.question('Хотите сыграть ещё раз? (да/нет): ');
+      }
+    }
     if (askReplay !== 'да') {
       playCheck = false;
       console.log(`
